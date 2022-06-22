@@ -3,15 +3,17 @@ const { Temperament, Dog } = require("../db");
 
 const getApiInfo = async () => {
   const apiUrl = await axios.get(
-    `https://api.thedogapi.com/v1/breeds?limit=25`
+    `https://api.thedogapi.com/v1/breeds?limit=50`
   );
   const apiInfo = await apiUrl.data.map((e) => {
     return {
       name: e.name,
       image: e.image.url,
       id: e.id,
-      height: e.height,
-      weight: e.weight,
+      minweight: Number(e.weight.metric.slice(0, 2)),
+      maxweight: Number(e.weight.metric.slice(4)),
+      minheight: Number(e.height.metric.slice(0, 2)),
+      maxheight: Number(e.height.metric.slice(4)),
       life_span: e.life_span,
     };
   });
