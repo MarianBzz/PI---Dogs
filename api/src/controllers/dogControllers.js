@@ -3,7 +3,7 @@ const { Temperament, Dog } = require("../db");
 
 const getApiInfo = async () => {
   const apiUrl = await axios.get(
-    `https://api.thedogapi.com/v1/breeds?limit=50`
+    `https://api.thedogapi.com/v1/breeds?limit=100`
   );
   const apiInfo = await apiUrl.data.map((e) => {
     return {
@@ -15,6 +15,7 @@ const getApiInfo = async () => {
       minheight: Number(e.height.metric.slice(0, 2)),
       maxheight: Number(e.height.metric.slice(4)),
       life_span: e.life_span,
+      temperament: e.temperament,
     };
   });
   return apiInfo;
