@@ -10,6 +10,7 @@ import {
   filterByAlphabet,
   getTemperamentList,
   filterByTemperament,
+  orderByWeight,
 } from "../../actions";
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
   const [temperament, setTemperament] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
   const [dogsPerPage, setDogsPerPage] = useState(8);
+  const [weight, setWeight] = useState(1);
   const indexOfLastDog = currentPage * dogsPerPage;
   const indexOfFirstDog = indexOfLastDog - dogsPerPage;
   const currentDogs = allDogs.slice(indexOfFirstDog, indexOfLastDog);
@@ -54,6 +56,13 @@ export default function Home() {
     setCurrentPage(1);
   }
 
+  function handleSortByWeight(e) {
+    e.preventDefault();
+    dispatch(orderByWeight(e.target.value));
+    setWeight(e.target.value);
+    setCurrentPage(1);
+  }
+
   function handleFilterCreated(e) {
     dispatch(filterCrated(e.target.value));
   }
@@ -74,7 +83,7 @@ export default function Home() {
       </button>
       <div>
         <span>Filter by weight</span>
-        <select>
+        <select onChange={(e) => handleSortByWeight(e)}>
           <option value="asc">Lightest</option>
           <option value="desc">Heaviest</option>
         </select>

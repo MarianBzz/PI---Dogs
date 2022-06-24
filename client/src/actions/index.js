@@ -5,6 +5,7 @@ export const FILTER_CREATED = "FILTER_CREATED";
 export const FILTER_BY_ALPHABET = "FILTER_BY_ALPHABET";
 export const FILTER_BY_TEMPERAMENTS = "FILTER_BY_TEMPERAMENTS";
 export const GET_TEMPERAMENT_LIST = "GET_TEMPERAMENT_LIST";
+export const ORDER_BY_WEIGHT = "ORDER_BY_WEIGHT";
 
 export function getDogs() {
   return async function (dispatch) {
@@ -40,6 +41,13 @@ export function getTemperamentList() {
 export function filterByTemperament(payload) {
   return {
     type: FILTER_BY_TEMPERAMENTS,
+    payload,
+  };
+}
+
+export function orderByWeight(payload) {
+  return {
+    type: ORDER_BY_WEIGHT,
     payload,
   };
 }

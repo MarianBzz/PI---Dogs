@@ -1,6 +1,7 @@
 import {
   FILTER_BY_ALPHABET,
   FILTER_BY_TEMPERAMENTS,
+  ORDER_BY_WEIGHT,
   FILTER_CREATED,
   GET_DOGS,
   GET_TEMPERAMENT_LIST,
@@ -9,7 +10,6 @@ let initialState = {
   dogs: [],
   allDogs: [],
   temperaments: [],
-  filterDogs: [],
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -37,8 +37,22 @@ export default function rootReducer(state = initialState, action) {
         temperaments: action.payload,
       };
 
+    case ORDER_BY_WEIGHT:
+      let sortedArrWeight =
+        action.payload === "desc"
+          ? state.dogs.sort((a, b) => {
+              return b.minweight - a.minweight;
+            })
+          : state.dogs.sort((a, b) => {
+              return a.minweight - b.minweight;
+            });
+      return {
+        ...state,
+        dogs: sortedArrWeight,
+      };
+
     case FILTER_BY_TEMPERAMENTS:
-      const allDogs = state.filterDogs;
+      const allDogs = state.allDogs;
       const temperamentFilter =
         action.payload === "All"
           ? allDogs

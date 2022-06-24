@@ -21,7 +21,7 @@ export default function LandingPage() {
             height="275"
             alt="patas"
           />
-          <Link to="/home">
+          <Link to="/home" style={{ textDecoration: "none" }}>
             <button className="home">Home</button>
           </Link>
         </div>

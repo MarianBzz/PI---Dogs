@@ -1,4 +1,5 @@
 import React from "react";
+import "./Card.css";
 
 export default function Card({
   image,
@@ -16,6 +17,7 @@ export default function Card({
       </div>
       <div>
         <img
+          className="image"
           src={image}
           alt="Imagen de la raza"
           width="200px"

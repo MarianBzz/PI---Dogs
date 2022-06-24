@@ -22,33 +22,51 @@
 .logo{
 display: flex;
 margin-left: 71%;
-margin-top: 6%;
+margin-top: 5%;
 
 }
 
 .title{
     display: flex;
     margin-left: 68%;
+    font-family: "GoodDog Plain";
+    font-size: 60px;
     /* margin-top: 5%; */
 }
 
 .description{
     display: flex;
-    margin-left: 66% ;
+    margin-left: 65% ;
     margin-top: 4%;
     font-family: "GoodDog Plain";
+    font-size: 35px;
+    color: #535c68;
 
 }
 
 .home{
     display: flex;
     margin-left: 49%;
-    margin-top: -39%;
-    font-family: ;
+    margin-top: -46%;
+    font-family:"GoodDog Plain" ;
+    font-size: 30px;
+    padding: 7px 13px;
+    border: 3px solid;
+    border-radius: 9px;
+    text-decoration: none;
+    border-left: 1px solid rgba(255, 255, 255);
+    border-top: 1px solid rgba(255, 255, 300);
+    background-color:#e58e26
+
 }
+.home:hover {
+    transform: scale(1.1);
+    text-decoration: none;
+    cursor:pointer;
+  }
 
 .patitas{
     display: flex;
     margin-left: 66%;
-    margin-top: -10%;
+    margin-top: -11%;
 }
