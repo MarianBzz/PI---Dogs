@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'GoodDog Plain';
+    font-style: normal;
+    font-weight: normal;
+    src: local('GoodDog Plain'), url('GOODDP__.woff') format('woff');
+    }
+
+.full{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background: url("../../images/doglanding.jpg") no-repeat 50% 50%;
+    background-size: cover;
+    position: absolute
+}
+.imgfondo{
+    height: 100vh;
+    width: 100%;
+}
+
+.logo{
+display: flex;
+margin-left: 71%;
+margin-top: 6%;
+
+}
+
+.title{
+    display: flex;
+    margin-left: 68%;
+    /* margin-top: 5%; */
+}
+
+.description{
+    display: flex;
+    margin-left: 66% ;
+    margin-top: 4%;
+    font-family: "GoodDog Plain";
+
+}
+
+.home{
+    display: flex;
+    margin-left: 49%;
+    margin-top: -39%;
+    font-family: ;
+}
+
+.patitas{
+    display: flex;
+    margin-left: 66%;
+    margin-top: -10%;
+}

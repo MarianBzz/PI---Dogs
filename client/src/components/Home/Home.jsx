@@ -1,15 +1,23 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getDogs, filterCrated, filterByAlphabet } from "../../actions";
 import { Link } from "react-router-dom";
 import Card from "../Card/Card";
 import Paginado from "../Paginado/Paginado";
+import {
+  getDogs,
+  filterCrated,
+  filterByAlphabet,
+  getTemperamentList,
+  filterByTemperament,
+} from "../../actions";
 
 export default function Home() {
   const dispatch = useDispatch();
   const allDogs = useSelector((state) => state.dogs); //utilizo hooks en vez de hacer mapstatetoprops
+  const allTemperaments = useSelector((state) => state.temperaments);
   const [orden, setOrden] = useState("");
+  const [temperament, setTemperament] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
   const [dogsPerPage, setDogsPerPage] = useState(8);
   const indexOfLastDog = currentPage * dogsPerPage;
@@ -22,11 +30,14 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(getDogs());
+    dispatch(getTemperamentList());
+    dispatch(filterByTemperament());
   }, []);
 
   function handleClick(e) {
     e.preventDefault();
     dispatch(getDogs());
+    setTemperament("All");
   }
 
   function handleSort(e) {
@@ -34,6 +45,13 @@ export default function Home() {
     dispatch(filterByAlphabet(e.target.value));
     setCurrentPage(1);
     setOrden(`Ordenado ${e.target.value}`);
+  }
+
+  function handleSelect(e) {
+    e.preventDefault();
+    dispatch(filterByTemperament(e.target.value));
+    setTemperament(e.target.value);
+    setCurrentPage(1);
   }
 
   function handleFilterCreated(e) {
@@ -75,11 +93,11 @@ export default function Home() {
         </select>
 
         <span> Filter by Temperament</span>
-        <select>
-          <option>All</option>
-          {/* {temperament.map((temp, index) => (
-            <option>{temp.name}</option>
-          ))} */}
+        <select onChange={(e) => handleSelect(e)}>
+          <option value="All"> All </option>
+          {allTemperaments.map((temp) => (
+            <option onClick={(e) => handleClick(e)}>{temp.name}</option>
+          ))}
         </select>
 
         <Paginado

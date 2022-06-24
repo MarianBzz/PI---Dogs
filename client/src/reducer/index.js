@@ -1,8 +1,9 @@
 import {
   FILTER_BY_ALPHABET,
-  FILTER_BY_ORIGIN,
+  FILTER_BY_TEMPERAMENTS,
   FILTER_CREATED,
   GET_DOGS,
+  GET_TEMPERAMENT_LIST,
 } from "../actions/";
 let initialState = {
   dogs: [],
@@ -14,15 +15,11 @@ let initialState = {
 export default function rootReducer(state = initialState, action) {
   switch (action.type) {
     case GET_DOGS:
-      console.log(action.payload);
       return {
         ...state,
         dogs: action.payload,
         allDogs: action.payload,
       };
-
-    case FILTER_BY_ORIGIN:
-      return {};
 
     case FILTER_CREATED:
       const createdFilter =
@@ -32,6 +29,24 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         dogs: action.payload === "all" ? state.allDogs : createdFilter,
+      };
+
+    case GET_TEMPERAMENT_LIST:
+      return {
+        ...state,
+        temperaments: action.payload,
+      };
+
+    case FILTER_BY_TEMPERAMENTS:
+      const allDogs = state.filterDogs;
+      const temperamentFilter =
+        action.payload === "All"
+          ? allDogs
+          : allDogs.filter((e) => e.temperament?.includes(action.payload));
+
+      return {
+        ...state,
+        dogs: temperamentFilter,
       };
 
     case FILTER_BY_ALPHABET:
