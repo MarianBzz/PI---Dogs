@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Card from "../Card/Card";
 import Paginado from "../Paginado/Paginado";
+import SearchBar from "../SearchBar/SearchBar";
 import {
   getDogs,
   filterCrated,
@@ -81,6 +82,7 @@ export default function Home() {
       >
         Cargar dogs nuevamente
       </button>
+      <SearchBar />
       <div>
         <span>Filter by weight</span>
         <select onChange={(e) => handleSortByWeight(e)}>

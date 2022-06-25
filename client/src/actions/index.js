@@ -6,6 +6,8 @@ export const FILTER_BY_ALPHABET = "FILTER_BY_ALPHABET";
 export const FILTER_BY_TEMPERAMENTS = "FILTER_BY_TEMPERAMENTS";
 export const GET_TEMPERAMENT_LIST = "GET_TEMPERAMENT_LIST";
 export const ORDER_BY_WEIGHT = "ORDER_BY_WEIGHT";
+export const GET_DOG_BREED = "GET_DOG_BREED";
+export const POST_DOG = "POST_DOG";
 
 export function getDogs() {
   return async function (dispatch) {
@@ -38,6 +40,29 @@ export function getTemperamentList() {
   };
 }
 
+export function getDogBreed(name) {
+  return async function (dispatch) {
+    try {
+      let json = await axios.get("http://localhost:3001/dogs?name=" + name);
+      return dispatch({
+        type: GET_DOG_BREED,
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function postDog(payload) {
+  return async function (dispatch) {
+    const response = await axios.post(
+      "http://localhost:3001/temperaments",
+      payload
+    );
+    return response;
+  };
+}
 export function filterByTemperament(payload) {
   return {
     type: FILTER_BY_TEMPERAMENTS,

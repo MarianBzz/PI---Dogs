@@ -5,6 +5,8 @@ import {
   FILTER_CREATED,
   GET_DOGS,
   GET_TEMPERAMENT_LIST,
+  GET_DOG_BREED,
+  POST_DOG,
 } from "../actions/";
 let initialState = {
   dogs: [],
@@ -29,6 +31,12 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         dogs: action.payload === "all" ? state.allDogs : createdFilter,
+      };
+
+    case GET_DOG_BREED:
+      return {
+        ...state,
+        dogs: action.payload,
       };
 
     case GET_TEMPERAMENT_LIST:
@@ -87,6 +95,11 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         dogs: sortDogs,
+      };
+
+    case POST_DOG:
+      return {
+        ...state,
       };
 
     default:
