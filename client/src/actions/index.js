@@ -56,13 +56,15 @@ export function getDogBreed(name) {
 
 export function postDog(payload) {
   return async function (dispatch) {
-    const response = await axios.post(
-      "http://localhost:3001/temperaments",
-      payload
-    );
-    return response;
+    try {
+      const response = await axios.post("http://localhost:3001/dogs", payload);
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
+
 export function filterByTemperament(payload) {
   return {
     type: FILTER_BY_TEMPERAMENTS,
