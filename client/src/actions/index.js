@@ -8,6 +8,7 @@ export const GET_TEMPERAMENT_LIST = "GET_TEMPERAMENT_LIST";
 export const ORDER_BY_WEIGHT = "ORDER_BY_WEIGHT";
 export const GET_DOG_BREED = "GET_DOG_BREED";
 export const POST_DOG = "POST_DOG";
+export const GET_DETAIL = "GET_DETAIL";
 
 export function getDogs() {
   return async function (dispatch) {
@@ -56,6 +57,7 @@ export function getDogBreed(name) {
 
 export function postDog(payload) {
   return async function (dispatch) {
+    console.log("hola", payload);
     try {
       const response = await axios.post("http://localhost:3001/dogs", payload);
       return response;
@@ -76,5 +78,19 @@ export function orderByWeight(payload) {
   return {
     type: ORDER_BY_WEIGHT,
     payload,
+  };
+}
+
+export function getDetail(id) {
+  return async function (dispatch) {
+    try {
+      const jsonDetail = await axios.get("http://localhost:3001/dogs/" + id);
+      return dispatch({
+        type: GET_DETAIL,
+        payload: jsonDetail,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 }

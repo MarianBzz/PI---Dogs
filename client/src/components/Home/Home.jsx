@@ -117,15 +117,18 @@ export default function Home() {
           paginado={paginado}
         />
 
-        {currentDogs?.map((e) => (
+        {currentDogs?.map((e, i) => (
           <Card
             name={e.name}
             image={e.image}
-            temperament={e.temperament}
+            temperament={
+              e.createInDb ? e.temperaments.map((t) => t.name) : e.temperament
+            }
             minweight={e.minweight}
             minheight={e.minheight}
             maxweight={e.maxweight}
             maxheight={e.maxheight}
+            key={i}
           />
         ))}
       </div>

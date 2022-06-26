@@ -4,7 +4,7 @@ const router = Router();
 const { getAllDogs } = require("../controllers/dogControllers");
 const axios = require("axios");
 
-router.get("/", async (req, res) => {
+router.get("/", async (req, res, next) => {
   try {
     const { name } = req.query;
     const allDogs = await getAllDogs();
@@ -35,41 +35,40 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/", async (req, res, next) => {
   try {
     const {
       name,
       image,
-      id,
       minheight,
       maxheight,
       minweight,
       maxweight,
       life_span,
       temperament,
-      createInDb,
     } = req.body;
     const dogCreate = await Dog.create({
       name,
       image,
-      id,
       minheight,
       maxheight,
       minweight,
       maxweight,
       life_span,
-      createInDb,
+    });
+    console.log(req.body);
+    temperament.forEach(async (e) => {
+      let dogTemperament = await Temperament.findAll({
+        where: { name: e },
+      });
+      console.log("fdsfdsf");
+      await dogCreate.addTemperaments(dogTemperament);
     });
 
-    const dogTemperament = await Temperament.findAll({
-      where: {
-        name: temperament,
-      },
-    });
-    await dogCreate.addTemperament(dogTemperament);
-    res.status(201).send("Perro creado ecsitosamente");
+    res.status(201).send("Dog add successfully");
   } catch (error) {
-    res.status(404).send("no se pudo crear el perro");
+    console.log(error);
+    res.status(404).send(error);
   }
 });
 module.exports = router;

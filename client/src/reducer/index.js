@@ -7,20 +7,23 @@ import {
   GET_TEMPERAMENT_LIST,
   GET_DOG_BREED,
   POST_DOG,
+  GET_DETAIL,
 } from "../actions/";
 let initialState = {
   dogs: [],
   allDogs: [],
   temperaments: [],
+  detail: [],
 };
 
 export default function rootReducer(state = initialState, action) {
   switch (action.type) {
     case GET_DOGS:
+      console.log(action.payload);
       return {
         ...state,
-        dogs: action.payload,
-        allDogs: action.payload,
+        dogs: action.payload.filter((e, i) => i > 2),
+        allDogs: action.payload.filter((e, i) => i > 2),
       };
 
     case FILTER_CREATED:
@@ -28,6 +31,7 @@ export default function rootReducer(state = initialState, action) {
         action.payload === "created"
           ? state.allDogs.filter((e) => e.createInDb)
           : state.allDogs.filter((e) => !e.createInDb);
+      console.log("dsfdsfdsfsddsffddsffdsdsf", createdFilter);
       return {
         ...state,
         dogs: action.payload === "all" ? state.allDogs : createdFilter,
@@ -37,6 +41,12 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         dogs: action.payload,
+      };
+
+    case GET_DETAIL:
+      return {
+        ...state,
+        detail: action.payload,
       };
 
     case GET_TEMPERAMENT_LIST:
