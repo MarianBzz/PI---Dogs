@@ -14,6 +14,9 @@ export default function SearchBar() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (!name.length) {
+      return alert("fgdgsgg"); //TRAMPAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+    }
     dispatch(getDogBreed(name));
   }
 

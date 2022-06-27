@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Card.css";
 
 export default function Card({
@@ -9,11 +10,14 @@ export default function Card({
   maxweight,
   minheight,
   maxheight,
+  id,
 }) {
   return (
     <div>
       <div>
-        <h4>{name}</h4>
+        <Link to={`/dogs/${id}`} style={{ textDecoration: "none" }}>
+          <h4>{name}</h4>
+        </Link>
       </div>
       <div>
         <img

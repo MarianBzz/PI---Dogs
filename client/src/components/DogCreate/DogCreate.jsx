@@ -4,47 +4,44 @@ import { postDog, getTemperamentList } from "../../actions/index";
 import { useDispatch, useSelector } from "react-redux";
 
 function validate(input) {
-  let errors = "";
-  console.log(input);
-  if (input.target.name === "name" && input.target.value.length < 2) {
-    errors = "Name required";
-  } else errors = "";
-  // if (!input.name) {
-  //   errors.name = "Name required";
-  // } else if (parseInt(input.name)) {
-  //   errors.name = "Name is invalid, write a text";
-  // }
-  // if (!input.image) {
-  //   errors.image = "image required";
-  // }
-  // if (!input.minweight) {
-  //   errors.minweight = "Minimum weight is required";
-  // } else if (Number(input.minweight) <= 0 || Number(input.minweight) >= 120) {
-  //   errors.minweight = "Write a number beetwen 0 - 120";
-  // }
-  // if (!input.maxweight) {
-  //   errors.maxweight = "Maximum weight is required";
-  // } else if (Number(input.maxweight) <= 0 || Number(input.maxweight) >= 120) {
-  //   errors.maxweight = "Write a number beetwen 0 - 120";
-  // }
-  // if (!input.minheight) {
-  //   errors.minheight = "Minimum height is required";
-  // } else if (Number(input.minheight) <= 0 || Number(input.minheight) >= 100) {
-  //   errors.minheight = "Write a number beetwen 0 - 100";
-  // }
-  // if (!input.maxheight) {
-  //   errors.maxheight = "Maximum height is required";
-  // } else if (Number(input.maxheight) <= 0 || Number(input.maxheight) >= 100) {
-  //   errors.maxheight = "Write a number beetwen 0 - 100";
-  // }
-  // if (!input.life_span) {
-  //   errors.life_span = "Life span is required";
-  // } else if (input.life_span < 1 || input.life_span > 20) {
-  //   errors.life_span = "Write a number beetwen 1 - 20";
-  // }
-  // if (!input.temperament) {
-  //   errors.temperament = "At least one temperament is required";
-  // }
+  let errors = {};
+
+  if (!input.name) {
+    errors.name = "Name required";
+  } else if (parseInt(input.name)) {
+    errors.name = "Name is invalid, write a text";
+  }
+  if (!input.image) {
+    errors.image = "image required";
+  }
+  if (!input.minweight) {
+    errors.minweight = "Minimum weight is required";
+  } else if (Number(input.minweight) <= 0 || Number(input.minweight) >= 120) {
+    errors.minweight = "Write a number beetwen 0 - 120";
+  }
+  if (!input.maxweight) {
+    errors.maxweight = "Maximum weight is required";
+  } else if (Number(input.maxweight) <= 0 || Number(input.maxweight) >= 120) {
+    errors.maxweight = "Write a number beetwen 0 - 120";
+  }
+  if (!input.minheight) {
+    errors.minheight = "Minimum height is required";
+  } else if (Number(input.minheight) <= 0 || Number(input.minheight) >= 100) {
+    errors.minheight = "Write a number beetwen 0 - 100";
+  }
+  if (!input.maxheight) {
+    errors.maxheight = "Maximum height is required";
+  } else if (Number(input.maxheight) <= 0 || Number(input.maxheight) >= 100) {
+    errors.maxheight = "Write a number beetwen 0 - 100";
+  }
+  if (!input.life_span) {
+    errors.life_span = "Life span is required";
+  } else if (input.life_span < 1 || input.life_span > 20) {
+    errors.life_span = "Write a number beetwen 1 - 20";
+  }
+  if (!input.temperament) {
+    errors.temperament = "At least one temperament is required";
+  }
   return errors;
 }
 
@@ -52,16 +49,7 @@ export function DogCreate() {
   const dispatch = useDispatch();
   const allTemperament = useSelector((state) => state.temperaments);
   const history = useHistory();
-  const [errors, setErrors] = useState({
-    name: "",
-    life_span: "",
-    minweight: "",
-    maxweight: "",
-    minheight: "",
-    maxheight: "",
-    image: "",
-    temperament: "",
-  });
+  const [errors, setErrors] = useState("");
   const [input, setInput] = useState({
     name: "",
     life_span: "",
@@ -78,7 +66,12 @@ export function DogCreate() {
       ...input,
       [e.target.name]: e.target.value,
     });
-    setErrors({ ...errors, [e.target.name]: validate(e) });
+    setErrors(
+      validate({
+        ...input,
+        [e.target.name]: e.target.value,
+      })
+    );
   }
 
   function handleSelect(e) {

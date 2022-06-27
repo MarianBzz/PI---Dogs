@@ -4,7 +4,7 @@ const router = Router();
 const { getAllDogs } = require("../controllers/dogControllers");
 const axios = require("axios");
 
-router.get("/", async (req, res, next) => {
+router.get("/", async (req, res) => {
   try {
     const { name } = req.query;
     const allDogs = await getAllDogs();
@@ -61,7 +61,6 @@ router.post("/", async (req, res, next) => {
       let dogTemperament = await Temperament.findAll({
         where: { name: e },
       });
-      console.log("fdsfdsf");
       await dogCreate.addTemperaments(dogTemperament);
     });
 
