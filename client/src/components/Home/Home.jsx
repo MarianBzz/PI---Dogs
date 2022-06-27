@@ -13,6 +13,8 @@ import {
   filterByTemperament,
   orderByWeight,
 } from "../../actions";
+import Nav from "../Nav/Nav";
+import "./Home.css";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -70,67 +72,64 @@ export default function Home() {
 
   return (
     <div>
-      <Link to="/dogs">
-        {" "}
-        <h2>Agregar Raza</h2>
-      </Link>
-      <h1>API DOGS JUJU</h1>
-      <button
-        onClick={(e) => {
-          handleClick(e);
-        }}
-      >
-        Cargar dogs nuevamente
-      </button>
-      <SearchBar />
-      <div>
-        <span>Filter by weight</span>
-        <select onChange={(e) => handleSortByWeight(e)}>
-          <option value="asc">Lightest</option>
-          <option value="desc">Heaviest</option>
-        </select>
+      <Nav handleClick={handleClick} allDogs={allDogs} />
+      <div className="roothome">
+        <div className="left">
+          <div className="filtros">
+            <span>Filter by weight</span>
+            <select onChange={(e) => handleSortByWeight(e)}>
+              <option value="asc">Lightest</option>
+              <option value="desc">Heaviest</option>
+            </select>
 
-        <span> Filter by order </span>
-        <select onChange={(e) => handleSort(e)}>
-          <option value="alf-az">A-Z</option>
-          <option value="alf-za">Z-A</option>
-        </select>
+            <span> Filter by order </span>
+            <select onChange={(e) => handleSort(e)}>
+              <option value="alf-az">A-Z</option>
+              <option value="alf-za">Z-A</option>
+            </select>
 
-        <span> Filter by origin</span>
-        <select onChange={(e) => handleFilterCreated(e)}>
-          <option value="all">All</option>
-          <option value="created">Created</option>
-          <option value="api">Api</option>
-        </select>
+            <span> Filter by origin</span>
+            <select onChange={(e) => handleFilterCreated(e)}>
+              <option value="all">All</option>
+              <option value="created">Created</option>
+              <option value="api">Api</option>
+            </select>
 
-        <span> Filter by Temperament</span>
-        <select onChange={(e) => handleSelect(e)}>
-          <option value="All"> All </option>
-          {allTemperaments.map((temp) => (
-            <option onClick={(e) => handleClick(e)}>{temp.name}</option>
-          ))}
-        </select>
-
-        <Paginado
-          dogsPerPage={dogsPerPage}
-          allDogs={allDogs.length}
-          paginado={paginado}
-        />
-
-        {currentDogs?.map((e, i) => (
-          <Card
-            name={e.name}
-            image={e.image}
-            temperament={
-              e.createInDb ? e.temperaments.map((t) => t.name) : e.temperament
-            }
-            minweight={e.minweight}
-            minheight={e.minheight}
-            maxweight={e.maxweight}
-            maxheight={e.maxheight}
-            key={i}
+            <span> Filter by Temperament</span>
+            <select onChange={(e) => handleSelect(e)}>
+              <option value="All"> All </option>
+              {allTemperaments.map((temp) => (
+                <option onClick={(e) => handleClick(e)}>{temp.name}</option>
+              ))}
+            </select>
+          </div>
+        </div>
+        <div className="right">
+          <div className="cards">
+            {currentDogs?.map((e, i) => (
+              <Card
+                name={e.name}
+                image={e.image}
+                temperament={
+                  e.createInDb
+                    ? e.temperaments.map((t) => t.name)
+                    : e.temperament
+                }
+                minweight={e.minweight}
+                minheight={e.minheight}
+                maxweight={e.maxweight}
+                maxheight={e.maxheight}
+                id={e.id}
+                key={i}
+              />
+            ))}
+          </div>
+          <Paginado
+            dogsPerPage={dogsPerPage}
+            allDogs={allDogs.length}
+            paginado={paginado}
           />
-        ))}
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,41 @@
+
+.paginado{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    list-style: none;   
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px;
+}
+
+.left{
+    display: flex;
+  align-self: flex-start;
+  background-color:#3d3d3d;
+  position:sticky;
+  top: 91.80px;
+  z-index: 1;
+  height: calc(100vh - 91.80px);
+  width: 37%;
+  justify-content: center;
+}
+
+.roothome{
+    display: flex;
+    flex-direction: row;
+}
+
+.filtros{
+    display: flex;
+    flex-direction: column;
+}
+
+.right{
+    display: flex;
+    flex-direction:column;
+}

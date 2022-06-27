@@ -31,7 +31,7 @@ export default function rootReducer(state = initialState, action) {
         action.payload === "created"
           ? state.allDogs.filter((e) => e.createInDb)
           : state.allDogs.filter((e) => !e.createInDb);
-      console.log("dsfdsfdsfsddsffddsffdsdsf", createdFilter);
+
       return {
         ...state,
         dogs: action.payload === "all" ? state.allDogs : createdFilter,

@@ -85,7 +85,7 @@ export function getDetail(id) {
   return async function (dispatch) {
     try {
       const jsonDetail = await axios.get("http://localhost:3001/dogs/" + id);
-      console.log(jsonDetail);
+      console.log(jsonDetail.data);
       return dispatch({
         type: GET_DETAIL,
         payload: jsonDetail.data,

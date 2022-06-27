@@ -1,5 +1,7 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { getDetail } from "../../actions/";
 import "./Card.css";
 
 export default function Card({
@@ -12,10 +14,16 @@ export default function Card({
   maxheight,
   id,
 }) {
+  const dispatch = useDispatch();
+  console.log(name);
   return (
     <div>
       <div>
-        <Link to={`/dogs/${id}`} style={{ textDecoration: "none" }}>
+        <Link
+          to={`/dogs/${id}`}
+          onClick={() => dispatch(getDetail(id))}
+          style={{ textDecoration: "none" }}
+        >
           <h4>{name}</h4>
         </Link>
       </div>
