@@ -76,32 +76,82 @@ export default function Home() {
       <div className="roothome">
         <div className="left">
           <div className="filtros">
+            <div className="filtertemperament">
+              <span> Filter by Temperament</span>
+              <select onChange={(e) => handleSelect(e)}>
+                <option value="All"> All </option>
+                {allTemperaments.map((temp) => (
+                  <option
+                    onClick={(e) => {
+                      handleClick(e);
+                    }}
+                  >
+                    {temp.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+
             <span>Filter by weight</span>
-            <select onChange={(e) => handleSortByWeight(e)}>
-              <option value="asc">Lightest</option>
-              <option value="desc">Heaviest</option>
-            </select>
+            <div className="filterweight">
+              <button
+                className="btnfilter"
+                onClick={(e) => handleSortByWeight(e)}
+                value="asc"
+              >
+                Lightest
+              </button>
+              <button
+                className="btnfilter"
+                onClick={(e) => handleSortByWeight(e)}
+                value="desc"
+              >
+                Heaviest
+              </button>
+            </div>
 
             <span> Filter by order </span>
-            <select onChange={(e) => handleSort(e)}>
-              <option value="alf-az">A-Z</option>
-              <option value="alf-za">Z-A</option>
-            </select>
+            <div className="filterorder">
+              <button
+                className="btnfilter"
+                onClick={(e) => handleSort(e)}
+                value="alf-az"
+              >
+                A-Z
+              </button>
+              <button
+                className="btnfilter"
+                onClick={(e) => handleSort(e)}
+                value="alf-za"
+              >
+                Z-A
+              </button>
+            </div>
 
             <span> Filter by origin</span>
-            <select onChange={(e) => handleFilterCreated(e)}>
-              <option value="all">All</option>
-              <option value="created">Created</option>
-              <option value="api">Api</option>
-            </select>
-
-            <span> Filter by Temperament</span>
-            <select onChange={(e) => handleSelect(e)}>
-              <option value="All"> All </option>
-              {allTemperaments.map((temp) => (
-                <option onClick={(e) => handleClick(e)}>{temp.name}</option>
-              ))}
-            </select>
+            <div className="filterorigin">
+              <button
+                className="btnfilter"
+                onClick={(e) => handleFilterCreated(e)}
+                value="all"
+              >
+                All
+              </button>
+              <button
+                className="btnfilter"
+                onClick={(e) => handleFilterCreated(e)}
+                value="created"
+              >
+                Created
+              </button>
+              <button
+                className="btnfilter"
+                onClick={(e) => handleFilterCreated(e)}
+                value="api"
+              >
+                Api
+              </button>
+            </div>
           </div>
         </div>
         <div className="right">

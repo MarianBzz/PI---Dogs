@@ -1,3 +1,29 @@
+.rootcard{
+display: flex;
+align-items: center;
+flex-direction: column;
+margin-bottom: 15%;
+justify-content: center;
+border: 1px solid black;
+border-radius: 10px;
+text-decoration: none;
+}
+
 .image{
-    object-fit:scale-down;
+    width: 100%;
+    background-color: aqua;
+    height: 250px;
+    object-fit: cover;
+    border-radius:10px 10px 0% 0%;
+    object-position: 50% 25%;
+    
+}
+
+.conteiner{
+width: 100%;
+}
+
+.namebreed{
+    transform: translateY(-15px);
+    
 }
