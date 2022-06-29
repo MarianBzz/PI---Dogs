@@ -26,15 +26,22 @@ export default function Card({
             onClick={() => dispatch(getDetail(id))}
             style={{ textDecoration: "none" }}
           >
-            <h4>{name}</h4>
+            <h4 className="namebreed">{name}</h4>
           </Link>
         </div>
       </div>
-      <div>{temperament}</div>
+      <div className="temperament">{temperament}</div>
       <div>
-        <h5>
-          Weight:{minheight} - {maxheight} cm
+        <h5 className="weight">
+          Weight: {minheight} - {maxheight} Lb
         </h5>
+        <Link
+          to={`/dogs/${id}`}
+          onClick={() => dispatch(getDetail(id))}
+          style={{ textDecoration: "none" }}
+        >
+          <button className="btnfilter">More Info</button>
+        </Link>
       </div>
     </div>
   );

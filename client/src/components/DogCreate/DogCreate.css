@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Radio+Canada:wght@700&display=swap');
+
+.imageandform{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.imagecreate{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background-size: cover;
+    position: absolute;
+}
+
+.rootcreate{
+    background: url("../../images/creategodcut.jpg") no-repeat 50% 10% ;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background-size: cover;
+    position: absolute;
+}
+
+.rootform{
+    margin-top: 2%;
+    margin-left: 11%;
+}
+
+.form{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    text-align:initial;
+}
+
+.nameform{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    text-align:initial;
+}
+
+.pictureform{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    text-align:initial;   
+}
+
+.minwform{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    text-align:initial;
+}
+
+.maxwform{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    text-align:initial;
+}
+
+.minhform{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    text-align:initial; 
+}
+
+.maxhform{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align:initial;
+}
+
+.lifespan{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align:initial;
+}
+
+.tempform{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align:initial;
+}
+
+.btncreate{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align:initial;
+    margin-bottom: 8%;
+}
+
+.tittleform{
+    font-family: 'DM Serif Display';
+    font-size: 22px;
+    color: #7d4928;
+}
+

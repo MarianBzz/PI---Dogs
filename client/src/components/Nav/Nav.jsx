@@ -27,7 +27,11 @@ export default function Nav({ handleClick, allDogs }) {
             <button className="button_top">Create Breed</button>
           </Link>
         </div>
-      ) : null}
+      ) : (
+        <Link to="/home" style={{ textDecoration: "none" }}>
+          <button className="buttonback">Back Home</button>
+        </Link>
+      )}
     </div>
   );
 }

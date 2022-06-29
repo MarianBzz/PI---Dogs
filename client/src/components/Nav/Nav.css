@@ -9,7 +9,7 @@
 .root{
     display: flex;
     border-bottom: 1px solid black;
-   background-color: #d8d1c7;
+   background-color: #c3b9ad;
    margin: 0;
    align-items: center;
    justify-content: space-between;
@@ -17,6 +17,7 @@
    height: 91.81px;
    top:0;
    position: sticky;
+   z-index: 2;
  
 }
 
@@ -51,16 +52,15 @@ color: #8c481e;
    margin-right: 15px;
    margin-left: 230px;
    float: right;
+   cursor: pointer;
 
 }
   
 .btn2:hover  {
-    /* Pull the button upwards when hovered */
    transform: translateY(-0.33em);
 }
   
 .btn2:active {
-    /* Push the button downwards when pressed */
    transform: translateY(0);
 }
 
@@ -89,15 +89,14 @@ color: #8c481e;
    transition: transform 0.1s ease;
    margin-right: 15px;
    align-items: center;
+   cursor: pointer;
 }
   
 .button_top:hover  {
-    /* Pull the button upwards when hovered */
    transform: translateY(-0.33em);
 }
   
 .button_top:active {
-    /* Push the button downwards when pressed */
    transform: translateY(0);
 }
 
@@ -110,3 +109,38 @@ color: #8c481e;
     align-items: center;
 
 }
+
+.buttonback{
+
+   --button_radius: 0.75em;
+   --button_color: #e8e8e8;
+   --button_outline_color: #482a16;
+   font-size: 17px;
+   font-weight: bold;
+   border: none;
+   border-radius: var(--button_radius);
+   background: var(--button_outline_color);
+   display:flex;
+   box-sizing: border-box;
+   border: 2px solid var(--button_outline_color);
+   border-radius: var(--button_radius);
+   padding: 0.6em 1em;
+   background: var(--button_color);
+   color: var(--button_outline_color);
+   transform: translateY(-0.2em);
+   transition: transform 0.1s ease;
+   margin-right: 15px;
+   margin-left: 230px;
+   float: right;
+   cursor: pointer;
+
+}
+  
+.buttonback:hover  {
+   transform: translateY(-0.33em);
+}
+  
+.buttonback:active {
+   transform: translateY(0);
+}
+

@@ -76,81 +76,92 @@ export default function Home() {
       <div className="roothome">
         <div className="left">
           <div className="filtros">
-            <div className="filtertemperament">
-              <span> Filter by Temperament</span>
-              <select onChange={(e) => handleSelect(e)}>
-                <option value="All"> All </option>
-                {allTemperaments.map((temp) => (
-                  <option
-                    onClick={(e) => {
-                      handleClick(e);
-                    }}
-                  >
-                    {temp.name}
-                  </option>
-                ))}
-              </select>
+            <div className="totaltemperament">
+              <div className="filtertemperament">
+                <span className="titulos"> Filter by Temperament</span>
+                <select
+                  className="selectortemp"
+                  onChange={(e) => handleSelect(e)}
+                >
+                  <option value="All"> All </option>
+                  {allTemperaments.map((temp) => (
+                    <option
+                      onClick={(e) => {
+                        handleClick(e);
+                      }}
+                    >
+                      {temp.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
 
-            <span>Filter by weight</span>
-            <div className="filterweight">
-              <button
-                className="btnfilter"
-                onClick={(e) => handleSortByWeight(e)}
-                value="asc"
-              >
-                Lightest
-              </button>
-              <button
-                className="btnfilter"
-                onClick={(e) => handleSortByWeight(e)}
-                value="desc"
-              >
-                Heaviest
-              </button>
+            <div className="totalweight">
+              <span className="titulos">Filter by weight</span>
+              <div className="filterweight">
+                <button
+                  className="btnfilter"
+                  onClick={(e) => handleSortByWeight(e)}
+                  value="asc"
+                >
+                  Lightest
+                </button>
+                <button
+                  className="btnfilter"
+                  onClick={(e) => handleSortByWeight(e)}
+                  value="desc"
+                >
+                  Heaviest
+                </button>
+              </div>
             </div>
 
-            <span> Filter by order </span>
-            <div className="filterorder">
-              <button
-                className="btnfilter"
-                onClick={(e) => handleSort(e)}
-                value="alf-az"
-              >
-                A-Z
-              </button>
-              <button
-                className="btnfilter"
-                onClick={(e) => handleSort(e)}
-                value="alf-za"
-              >
-                Z-A
-              </button>
+            <div className="totalorder">
+              <span className="titulos"> Filter by order </span>
+              <div className="filterorder">
+                <button
+                  className="btnfilter"
+                  onClick={(e) => handleSort(e)}
+                  value="alf-az"
+                >
+                  A - Z
+                </button>
+                <button
+                  className="btnfilter"
+                  onClick={(e) => handleSort(e)}
+                  value="alf-za"
+                >
+                  Z - A
+                </button>
+              </div>
             </div>
 
-            <span> Filter by origin</span>
-            <div className="filterorigin">
-              <button
-                className="btnfilter"
-                onClick={(e) => handleFilterCreated(e)}
-                value="all"
-              >
-                All
-              </button>
-              <button
-                className="btnfilter"
-                onClick={(e) => handleFilterCreated(e)}
-                value="created"
-              >
-                Created
-              </button>
-              <button
-                className="btnfilter"
-                onClick={(e) => handleFilterCreated(e)}
-                value="api"
-              >
-                Api
-              </button>
+            <div className="totalorigin">
+              <span className="titulos"> Filter by origin</span>
+              <div className="filterorigin">
+                <button
+                  className="btnfilter"
+                  onClick={(e) => handleFilterCreated(e)}
+                  value="all"
+                >
+                  All
+                </button>
+                <button
+                  className="btnfilter"
+                  onClick={(e) => handleFilterCreated(e)}
+                  value="created"
+                >
+                  Created
+                </button>
+                <button
+                  className="btnfilter"
+                  onClick={(e) => handleFilterCreated(e)}
+                  value="api"
+                >
+                  Api
+                </button>
+              </div>
             </div>
           </div>
         </div>
