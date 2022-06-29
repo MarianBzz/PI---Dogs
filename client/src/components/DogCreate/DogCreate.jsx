@@ -14,7 +14,7 @@ function validate(input) {
     errors.name = "Name is invalid, write a text";
   }
   if (!input.image) {
-    errors.image = "image required";
+    errors.image = "Image required";
   }
   if (!input.minweight) {
     errors.minweight = "Minimum weight is required";
@@ -80,10 +80,14 @@ export function DogCreate() {
     if (input.temperament.includes(e.target.value)) {
       alert("Already in the list");
     } else {
-      setInput({
-        ...input,
-        temperament: [...input.temperament, e.target.value],
-      });
+      if (input.temperament.length < 6) {
+        setInput({
+          ...input,
+          temperament: [...input.temperament, e.target.value],
+        });
+      } else {
+        alert("Six temperaments max");
+      }
     }
   }
 
@@ -119,10 +123,11 @@ export function DogCreate() {
       <Nav />
       <div className="imageandform">
         <div className="rootform">
-          <h1 className="tittleform">Create your own breed of dog</h1>
-          <div className="btncreate">
+          <form className="form" onSubmit={(e) => handleSubmit(e)}>
+            <h1 className="tittleform">Create your own breed of dog</h1>
             {console.log(Object.values(errors))}
             <button
+              className="btncreate"
               disabled={
                 input.temperament.length === 0 &&
                 Object.values(errors).every((x) => x !== null || x !== "")
@@ -131,115 +136,162 @@ export function DogCreate() {
             >
               Create
             </button>
-          </div>
-          <form className="form" onSubmit={(e) => handleSubmit(e)}>
-            <div className="nameform">
-              <label>Name:</label>
-              <input
-                placeholder="Dog name..."
-                type="text"
-                value={input.name}
-                name="name"
-                onChange={(e) => handleChange(e)}
-              />
-              <div>{errors.name && <p>{errors.name}</p>}</div>
-            </div>
-
-            <div className="pictureform">
-              <label>Picture:</label>
-              <input
-                type="url"
-                value={input.image}
-                name="image"
-                onChange={(e) => handleChange(e)}
-              />
-              <div>{errors.image && <p>{errors.image}</p>}</div>
-            </div>
-
-            <div className="minwform">
-              <label>Min weight:</label>
-              <input
-                type="number"
-                min="0"
-                placeholder="Minimum weight..."
-                value={input.minweight}
-                name="minweight"
-                onChange={(e) => handleChange(e)}
-              />
-              <div>{errors.minweight && <p>{errors.minweight}</p>}</div>
-            </div>
-
-            <div className="maxwform">
-              <label>Max weight:</label>
-              <input
-                type="number"
-                min="0"
-                placeholder="Maximum weight..."
-                value={input.maxweight}
-                name="maxweight"
-                onChange={(e) => handleChange(e)}
-              />
-              <div>{errors.maxweight && <p>{errors.maxweight}</p>}</div>
-            </div>
-
-            <div className="minhform">
-              <label>Min height:</label>
-              <input
-                type="number"
-                min="0"
-                placeholder="Minimum height..."
-                value={input.minheight}
-                name="minheight"
-                onChange={(e) => handleChange(e)}
-              />
-              <div>{errors.minheight && <p>{errors.minheight}</p>}</div>
-            </div>
-
-            <div className="maxhform">
-              <label>Max height:</label>
-              <input
-                type="number"
-                min="0"
-                placeholder="Maximum height..."
-                value={input.maxheight}
-                name="maxheight"
-                onChange={(e) => handleChange(e)}
-              />
-              <div>{errors.maxheight && <p>{errors.maxheight}</p>}</div>
-            </div>
-
-            <div className="lifespan">
-              <label>Life Span</label>
-              <input
-                type="number"
-                min="0"
-                placeholder="Dog's life span"
-                value={input.life_span}
-                name="life_span"
-                onChange={(e) => handleChange(e)}
-              />
-              <div>{errors.life_span && <p>{errors.life_span}</p>}</div>
-            </div>
-
-            <div className="tempform">
-              <label>Temperaments:</label>
-              <select onChange={(e) => handleSelect(e)}>
-                {allTemperament?.map((e, i) => (
-                  <option value={e.name} key={i}>
-                    {e.name}
-                  </option>
-                ))}
-              </select>
-              <div>{errors.temperament && <p>{errors.temperament}</p>}</div>
+            <div className="error">
+              <div className="abc">
+                <input
+                  className="inputform"
+                  placeholder="Dog name..."
+                  type="text"
+                  value={input.name}
+                  name="name"
+                  onChange={(e) => handleChange(e)}
+                />
+              </div>
               <div>
-                {input.temperament.map((e, i) => (
-                  <li key={i}>
-                    {e}
-                    <button type="reset" onClick={() => handleDelete(e)}>
-                      X
-                    </button>
-                  </li>
-                ))}
+                {errors.name && <p className="errorms">{errors.name}</p>}
+              </div>
+            </div>
+
+            <div className="error">
+              <div className="abc">
+                <input
+                  className="inputform"
+                  type="url"
+                  value={input.image}
+                  name="image"
+                  onChange={(e) => handleChange(e)}
+                  placeholder="Url"
+                />
+              </div>
+              <div>
+                {errors.image && <p className="errorms">{errors.image}</p>}
+              </div>
+            </div>
+
+            <div className="error">
+              <div className="abc">
+                <input
+                  className="inputform"
+                  type="number"
+                  min="0"
+                  placeholder="Minimum weight..."
+                  value={input.minweight}
+                  name="minweight"
+                  onChange={(e) => handleChange(e)}
+                />
+              </div>
+              <div>
+                {errors.minweight && (
+                  <p className="errorms">{errors.minweight}</p>
+                )}
+              </div>
+            </div>
+
+            <div className="error">
+              <div className="abc">
+                <input
+                  className="inputform"
+                  type="number"
+                  min="0"
+                  placeholder="Maximum weight..."
+                  value={input.maxweight}
+                  name="maxweight"
+                  onChange={(e) => handleChange(e)}
+                />
+              </div>
+              <div>
+                {errors.maxweight && (
+                  <p className="errorms">{errors.maxweight}</p>
+                )}
+              </div>
+            </div>
+
+            <div className="error">
+              <div className="abc">
+                <input
+                  className="inputform"
+                  type="number"
+                  min="0"
+                  placeholder="Minimum height..."
+                  value={input.minheight}
+                  name="minheight"
+                  onChange={(e) => handleChange(e)}
+                />
+              </div>
+              <div>
+                {errors.minheight && (
+                  <p className="errorms">{errors.minheight}</p>
+                )}
+              </div>
+            </div>
+
+            <div className="error">
+              <div className="abc">
+                <input
+                  className="inputform"
+                  type="number"
+                  min="0"
+                  placeholder="Maximum height..."
+                  value={input.maxheight}
+                  name="maxheight"
+                  onChange={(e) => handleChange(e)}
+                />
+              </div>
+              <div>
+                {errors.maxheight && (
+                  <p className="errorms">{errors.maxheight}</p>
+                )}
+              </div>
+            </div>
+
+            <div className="error">
+              <div className="abc">
+                <input
+                  className="inputform"
+                  type="number"
+                  min="0"
+                  placeholder="Dog's life span"
+                  value={input.life_span}
+                  name="life_span"
+                  onChange={(e) => handleChange(e)}
+                />
+              </div>
+              <div>
+                {errors.life_span && (
+                  <p className="errorms">{errors.life_span}</p>
+                )}
+              </div>
+            </div>
+
+            <div className="error">
+              <div className="templimit">
+                <label className="titletemp">Select temperaments:</label>
+                <select className="pop" onChange={(e) => handleSelect(e)}>
+                  {allTemperament?.map((e, i) => (
+                    <option value={e.name} key={i}>
+                      {e.name}
+                    </option>
+                  ))}
+                </select>
+                <div>
+                  {errors.temperament && (
+                    <p className="errorms">{errors.temperament}</p>
+                  )}
+                </div>
+                <div>
+                  {input.temperament.map((e, i) => (
+                    <li className="listatemp" key={i}>
+                      {e}
+                      <button
+                        className="x"
+                        type="reset"
+                        onClick={() => handleDelete(e)}
+                      >
+                        X
+                      </button>
+                    </li>
+                  ))}
+                </div>
               </div>
             </div>
           </form>

@@ -15,9 +15,9 @@
 }
 
 .left{
-    display: flex;
+  display: flex;
   align-self: flex-start;
-  background-color: #e2dfdf;
+  background-color: #b3a799;
   position:sticky;
   top: 91.80px;
   z-index: 1;
@@ -39,10 +39,10 @@
 .right{
     display: flex;
     flex-direction:column;
-    background-color: #e8e8e8;
+    background-color: #c3b9ad;
     width: 100%;
 }
-
+/* ata aki noma */
 .filtertemperament{
     display: flex;
     align-items: center;
@@ -57,8 +57,7 @@
     flex-direction: row;
     margin-bottom: 10%;
     margin-top: 10%;
-    justify-content: space-around;
-    justify-content: space-evenly;
+    justify-content: center;
     padding-bottom: 0px;
 }
 
@@ -68,50 +67,39 @@
     flex-direction: row;
     margin-bottom: 10%;
     margin-top: 10% ;
-    justify-content: space-around;
+    justify-content:center
 }
 
 .filterorigin{
     display: flex;
+    flex-direction:column-reverse;
     align-items: center;
-    flex-direction: row;
     justify-content: space-around;
-    margin-bottom: 10%;
-    margin-top: 10% ;
+    margin-top: 4% ;
+    margin-bottom: 2%;
 }
 
 .btnfilter {
-    border: none;
-    font-family:'DM Serif Display';
-    font-size: 15px;
-    font-weight: bold;
-    background: transparent;
-    color: #035f0b;
-    border: solid 1px black;
-    padding: 10px;
-    border-radius: 4px;
-    transition-duration: 0.2s;
-    cursor: pointer;
-    
-   }
+  display: inline-block;
+  padding: 0.6em 1.7em;
+  border: 0.1em solid #857e7e;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #502525;
+  text-align: center;
+  transition: all 0.2s;
+  background-color: #e2dfdf;
+  cursor: pointer;
+}
 
-   .btnfilter:before {
-    content: "»";
-    opacity: 0;
-    margin-left: -15px;
-    transition-duration: 0.2s;
-   }
-   
-   .btnfilter:hover:before {
-    margin-left: 0px;
-    opacity: 1;
-   }
-   
-   .btnfilter:hover {
-    color: black;
-    background: rgba(0, 0, 0, 0.02);
-    border: solid 2px gainsboro;
-   }
+.btnfilter:hover {
+  color: #000000;
+  background-color: #817a7a;
+}
 
   .totalweight{
     padding-top: 10px;
@@ -136,9 +124,9 @@
     border: 1px solid black;
     border-radius: 10px;
     width: 230px;
-    margin-bottom: 10%;
     padding-top: 10px;
     background-color: #f5f1f1;
+    margin-bottom: 80;
   }
 
   .totaltemperament{
@@ -197,4 +185,12 @@
   }
   .selectortemp option {
     font-weight:normal;
+  }
+
+  .gifload{
+    height: 100vh;
+    background: #c3b9ad;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }

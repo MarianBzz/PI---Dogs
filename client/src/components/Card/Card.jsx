@@ -33,7 +33,7 @@ export default function Card({
       <div className="temperament">{temperament}</div>
       <div>
         <h5 className="weight">
-          Weight: {minheight} - {maxheight} Lb
+          Weight: {minweight} - {maxweight} Lb
         </h5>
         <Link
           to={`/dogs/${id}`}

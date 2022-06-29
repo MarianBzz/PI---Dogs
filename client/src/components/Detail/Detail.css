@@ -1,0 +1,16 @@
+.rootdetail{
+    display: flex;
+    flex-direction: row;
+    margin-top: 155px;
+    justify-content: center;
+}
+
+.imgdetail{
+    width: 350px;
+}
+
+.infodetail{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}

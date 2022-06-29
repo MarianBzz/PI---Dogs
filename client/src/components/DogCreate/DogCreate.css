@@ -3,6 +3,7 @@
 .imageandform{
     display: flex;
     justify-content: flex-start;
+    width: 80%;
 }
 
 .imagecreate{
@@ -11,7 +12,6 @@
     padding: 0;
     margin: 0;
     background-size: cover;
-    position: absolute;
 }
 
 .rootcreate{
@@ -25,8 +25,15 @@
 }
 
 .rootform{
-    margin-top: 2%;
-    margin-left: 11%;
+    margin-top: 1%;
+    margin-left: 14%;
+}
+
+.error{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    text-align:initial; 
 }
 
 .form{
@@ -36,69 +43,6 @@
     text-align:initial;
 }
 
-.nameform{
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    text-align:initial;
-}
-
-.pictureform{
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    text-align:initial;   
-}
-
-.minwform{
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    text-align:initial;
-}
-
-.maxwform{
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    text-align:initial;
-}
-
-.minhform{
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    text-align:initial; 
-}
-
-.maxhform{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    text-align:initial;
-}
-
-.lifespan{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    text-align:initial;
-}
-
-.tempform{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    text-align:initial;
-}
-
-.btncreate{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    text-align:initial;
-    margin-bottom: 8%;
-}
 
 .tittleform{
     font-family: 'DM Serif Display';
@@ -106,3 +50,98 @@
     color: #7d4928;
 }
 
+.errorms{
+    font-family: 'DM Serif Display';
+    font-size: 12px;
+    color: red;
+}
+
+.inputform{
+    background: transparent;
+    width: 300px;
+    border: none;
+    border-bottom: 1px solid #7d4928;
+    height: 30px;
+}
+
+.templimit{
+    font-family: 'DM Serif Display';
+    font-size: 14px;
+    color: #3f200c;
+}
+
+.titletemp{
+    font-family: 'DM Serif Display';
+    font-size: 15px;
+    color: #6e3712;
+    margin-bottom: 20px;
+}
+
+.pop{
+    margin-bottom: 12px;
+    margin-top: 12px;
+    width: 160px;
+}
+
+.x{
+    font-size: 7px;
+    height: 12px;
+    background-color: rgb(192, 59, 59);  
+    border: none;  
+    vertical-align: middle;
+    margin: 5px;
+    margin-top: 10px;
+    align-items: center;
+
+}
+
+.btncreate {
+    display: inline-block;
+    padding: 0.65em 1.6em;
+    border: 3px solid #ffffff;
+    margin: 0 0.3em 0.3em 0;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    color: #6e3712;;
+    text-align: center;
+    transition: all 0.3s;
+    animation: bn13bouncy 20s infinite linear;
+    position: relative;
+    width: 305px;
+    background-color: bisque;
+    margin-bottom: 16px;
+    cursor: pointer;
+  }
+  
+  .btncreate:hover {
+    background-color: rgb(201, 147, 67);
+    color: #000000;
+  }
+  
+  @keyframes bn13bouncy {
+    0% {
+      top: 0em;
+    }
+    40% {
+      top: 0em;
+    }
+    43% {
+      top: -0.9em;
+    }
+    46% {
+      top: 0em;
+    }
+    48% {
+      top: -0.4em;
+    }
+    50% {
+      top: 0em;
+    }
+    100% {
+      top: 0em;
+    }
+  }
+  
