@@ -19,7 +19,9 @@ export default function Card({
   return (
     <div className="rootcard">
       <div className="conteiner">
-        <img className="image" src={image} alt="Imagen de la raza"></img>
+        <div className="imgcont">
+          <img className="image" src={image} alt="Imagen de la raza"></img>
+        </div>
         <div className="namebreed">
           <Link
             to={`/dogs/${id}`}
@@ -33,7 +35,7 @@ export default function Card({
       <div className="temperament">{temperament}</div>
       <div>
         <h5 className="weight">
-          Weight: {minweight} - {maxweight} Lb
+          Weight: {minweight} - {maxweight} Kg
         </h5>
         <Link
           to={`/dogs/${id}`}

@@ -8,6 +8,7 @@ import {
   GET_DOG_BREED,
   POST_DOG,
   GET_DETAIL,
+  SET_CLEAR_DETAIL,
 } from "../actions/";
 let initialState = {
   dogs: [],
@@ -53,6 +54,12 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         temperaments: action.payload,
+      };
+
+    case SET_CLEAR_DETAIL:
+      return {
+        ...state,
+        detail: action.payload,
       };
 
     case ORDER_BY_WEIGHT:

@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getDetail } from "../../actions";
+import { getDetail, setCleartDetail } from "../../actions";
 import { useEffect } from "react";
 import { useParams } from "react-router";
 import imgload from "../../images/loadindog.gif";
@@ -14,10 +14,13 @@ export default function Detail(props) {
 
   useEffect(() => {
     dispatch(getDetail(id));
+    return () => {
+      dispatch(setCleartDetail());
+    };
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="app">
       <Nav />
       {!detailDog.name ? (
         <div className="gifload">
@@ -28,14 +31,34 @@ export default function Detail(props) {
           <div className="imagedetail">
             <img className="imgdetail" src={detailDog.image} alt="Dog image" />
           </div>
+          <h1 className="breedname">{detailDog.name}</h1>
           <div className="infodetail">
-            <h1>Name of breed: {detailDog.name}</h1>
-            <p>Temperamet: {detailDog.temperament}</p>
-            <p>Minimum Weight: {detailDog.minweight}</p>
-            <p>Maximum Weight: {detailDog.maxweight}</p>
-            <p>Minimum Height: {detailDog.minheight}</p>
-            <p>Maximum Height: {detailDog.maxheight}</p>
-            <p>Life Span: {detailDog.life_span}</p>
+            <p className="md">
+              <strong>Temperament</strong>
+              <br />
+              {detailDog.temperament}
+            </p>
+            <p>
+              {" "}
+              <strong>Minimum Weight </strong>
+              <br />
+              {detailDog.minweight}
+            </p>
+            <p>
+              <strong>Maximum Weight</strong> <br /> {detailDog.maxweight}
+            </p>
+            <p>
+              {" "}
+              <strong> Minimum Height </strong> <br />
+              {detailDog.minheight}
+            </p>
+            <p>
+              <strong>Maximum Height </strong>
+              <br /> {detailDog.maxheight}
+            </p>
+            <p>
+              <strong>Life Span</strong> <br /> {detailDog.life_span}
+            </p>
           </div>
         </div>
       )}

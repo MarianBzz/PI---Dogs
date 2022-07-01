@@ -9,6 +9,7 @@ export const ORDER_BY_WEIGHT = "ORDER_BY_WEIGHT";
 export const GET_DOG_BREED = "GET_DOG_BREED";
 export const POST_DOG = "POST_DOG";
 export const GET_DETAIL = "GET_DETAIL";
+export const SET_CLEAR_DETAIL = " SET_CLEAR_DETAIL";
 
 export function getDogs() {
   return async function (dispatch) {
@@ -78,6 +79,13 @@ export function orderByWeight(payload) {
   return {
     type: ORDER_BY_WEIGHT,
     payload,
+  };
+}
+
+export function setCleartDetail() {
+  return {
+    type: SET_CLEAR_DETAIL,
+    payload: [],
   };
 }
 

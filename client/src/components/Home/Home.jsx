@@ -101,18 +101,24 @@ export default function Home() {
                 </div>
 
                 <div className="totalweight">
-                  <span className="titulos">Filter by weight</span>
+                  <span className="titulos">Order by weight</span>
                   <div className="filterweight">
                     <button
                       className="btnfilter"
-                      onClick={(e) => handleSortByWeight(e)}
+                      onClick={(e) => {
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                        handleSortByWeight(e);
+                      }}
                       value="asc"
                     >
                       Lightest
                     </button>
                     <button
                       className="btnfilter"
-                      onClick={(e) => handleSortByWeight(e)}
+                      onClick={(e) => {
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                        handleSortByWeight(e);
+                      }}
                       value="desc"
                     >
                       Heaviest
@@ -121,18 +127,24 @@ export default function Home() {
                 </div>
 
                 <div className="totalorder">
-                  <span className="titulos"> Filter by order </span>
+                  <span className="titulos"> Order by </span>
                   <div className="filterorder">
                     <button
                       className="btnfilter"
-                      onClick={(e) => handleSort(e)}
+                      onClick={(e) => {
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                        handleSort(e);
+                      }}
                       value="alf-az"
                     >
                       A - Z
                     </button>
                     <button
                       className="btnfilter"
-                      onClick={(e) => handleSort(e)}
+                      onClick={(e) => {
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                        handleSort(e);
+                      }}
                       value="alf-za"
                     >
                       Z - A
@@ -145,24 +157,33 @@ export default function Home() {
                   <div className="filterorigin">
                     <button
                       className="btnfilter"
-                      onClick={(e) => handleFilterCreated(e)}
-                      value="all"
-                    >
-                      All
-                    </button>
-                    <button
-                      className="btnfilter"
-                      onClick={(e) => handleFilterCreated(e)}
+                      onClick={(e) => {
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                        handleFilterCreated(e);
+                      }}
                       value="created"
                     >
                       Created
                     </button>
                     <button
                       className="btnfilter"
-                      onClick={(e) => handleFilterCreated(e)}
+                      onClick={(e) => {
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                        handleFilterCreated(e);
+                      }}
                       value="api"
                     >
                       Api
+                    </button>
+                    <button
+                      className="btnfilter"
+                      onClick={(e) => {
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                        handleFilterCreated(e);
+                      }}
+                      value="all"
+                    >
+                      All
                     </button>
                   </div>
                 </div>

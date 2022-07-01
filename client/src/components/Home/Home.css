@@ -72,7 +72,7 @@
 
 .filterorigin{
     display: flex;
-    flex-direction:column-reverse;
+    flex-direction:column;
     align-items: center;
     justify-content: space-around;
     margin-top: 4% ;
