@@ -1,10 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import Card from "../Card/Card";
 import Paginado from "../Paginado/Paginado";
-import SearchBar from "../SearchBar/SearchBar";
 import imgload from "../../images/loadindog.gif";
 import {
   getDogs,
@@ -29,6 +27,8 @@ export default function Home() {
   const indexOfLastDog = currentPage * dogsPerPage;
   const indexOfFirstDog = indexOfLastDog - dogsPerPage;
   const currentDogs = allDogs.slice(indexOfFirstDog, indexOfLastDog);
+
+  console.log(allDogs);
 
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -197,7 +197,7 @@ export default function Home() {
                     image={e.image}
                     temperament={
                       e.createInDb
-                        ? e.temperaments.map((t) => t.name)
+                        ? e.temperaments.map((t) => t.name + ", ")
                         : e.temperament
                     }
                     minweight={e.minweight}

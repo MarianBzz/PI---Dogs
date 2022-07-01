@@ -20,6 +20,7 @@ box-shadow: 5px 5px 10px rgba(65, 42, 2, 0.548);
     overflow: hidden;
     padding: 0;
     margin: 0;
+    height: 250px;
 }
 
 .image{

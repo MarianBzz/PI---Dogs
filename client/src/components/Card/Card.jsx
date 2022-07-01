@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { getDetail } from "../../actions/";
 import "./Card.css";
+import imgload from "../../images/loadindog.gif";
 
 export default function Card({
   image,
@@ -12,6 +13,7 @@ export default function Card({
   maxweight,
   minheight,
   maxheight,
+  createInDb,
   id,
 }) {
   const dispatch = useDispatch();
@@ -20,7 +22,19 @@ export default function Card({
     <div className="rootcard">
       <div className="conteiner">
         <div className="imgcont">
-          <img className="image" src={image} alt="Imagen de la raza"></img>
+          <img
+            className="image"
+            src={
+              image ? (
+                image
+              ) : (
+                <div className="gifload">
+                  <img src={imgload} alt="gif dog" />
+                </div>
+              )
+            }
+            alt="Imagen de la raza"
+          ></img>
         </div>
         <div className="namebreed">
           <Link

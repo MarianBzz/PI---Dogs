@@ -31,7 +31,7 @@ router.get("/:id", async (req, res) => {
   if (dog) {
     res.json(dog);
   } else {
-    res.status(404).send("Perro sos vos");
+    res.status(404).send("No se encontro el id");
   }
 });
 
@@ -56,7 +56,7 @@ router.post("/", async (req, res, next) => {
       maxweight,
       life_span,
     });
-    console.log(req.body);
+
     temperament.forEach(async (e) => {
       let dogTemperament = await Temperament.findAll({
         where: { name: e },

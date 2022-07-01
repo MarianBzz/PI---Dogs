@@ -268,7 +268,11 @@ export function DogCreate() {
                 <label className="titletemp">Select temperaments:</label>
                 <select className="pop" onChange={(e) => handleSelect(e)}>
                   {allTemperament?.map((e, i) => (
-                    <option value={e.name} key={i}>
+                    <option
+                      value={e.name}
+                      key={i}
+                      onChange={(e) => handleChange(e)}
+                    >
                       {e.name}
                     </option>
                   ))}

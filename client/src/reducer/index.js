@@ -20,11 +20,10 @@ let initialState = {
 export default function rootReducer(state = initialState, action) {
   switch (action.type) {
     case GET_DOGS:
-      console.log(action.payload);
       return {
         ...state,
-        dogs: action.payload.filter((e, i) => i > 22),
-        allDogs: action.payload.filter((e, i) => i > 2),
+        dogs: action.payload,
+        allDogs: action.payload,
       };
 
     case FILTER_CREATED:

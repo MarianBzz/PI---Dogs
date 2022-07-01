@@ -38,24 +38,26 @@ export default function Detail(props) {
               <br />
               {detailDog.temperament}
             </p>
-            <p>
-              {" "}
-              <strong>Minimum Weight </strong>
-              <br />
-              {detailDog.minweight}
-            </p>
-            <p>
-              <strong>Maximum Weight</strong> <br /> {detailDog.maxweight}
-            </p>
-            <p>
-              {" "}
-              <strong> Minimum Height </strong> <br />
-              {detailDog.minheight}
-            </p>
-            <p>
-              <strong>Maximum Height </strong>
-              <br /> {detailDog.maxheight}
-            </p>
+            <div className="weightdet">
+              <p>
+                <strong>Min Weight </strong>
+                <br />
+                {detailDog.minweight}Kg
+              </p>
+              <p>
+                <strong>Max Weight</strong> <br /> {detailDog.maxweight}Kg
+              </p>
+            </div>
+            <div className="heightdet">
+              <p>
+                <strong> Min Height </strong> <br />
+                {detailDog.minheight}Cm
+              </p>
+              <p>
+                <strong>Max Height </strong>
+                <br /> {detailDog.maxheight}Cm
+              </p>
+            </div>
             <p>
               <strong>Life Span</strong> <br /> {detailDog.life_span}
             </p>
