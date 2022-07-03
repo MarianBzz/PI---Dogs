@@ -17,24 +17,29 @@ export default function Card({
   id,
 }) {
   const dispatch = useDispatch();
-  console.log(name);
   return (
     <div className="rootcard">
       <div className="conteiner">
         <div className="imgcont">
-          <img
-            className="image"
-            src={
-              image ? (
-                image
-              ) : (
-                <div className="gifload">
-                  <img src={imgload} alt="gif dog" />
-                </div>
-              )
-            }
-            alt="Imagen de la raza"
-          ></img>
+          <Link
+            to={`/dogs/${id}`}
+            onClick={() => dispatch(getDetail(id))}
+            style={{ textDecoration: "none" }}
+          >
+            <img
+              className="image"
+              src={
+                image ? (
+                  image
+                ) : (
+                  <div className="gifload">
+                    <img src={imgload} alt="gif dog" />
+                  </div>
+                )
+              }
+              alt="Imagen de la raza"
+            ></img>
+          </Link>
         </div>
         <div className="namebreed">
           <Link

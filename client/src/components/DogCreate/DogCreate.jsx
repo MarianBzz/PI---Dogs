@@ -80,13 +80,13 @@ export function DogCreate() {
     if (input.temperament.includes(e.target.value)) {
       alert("Already in the list");
     } else {
-      if (input.temperament.length < 6) {
+      if (input.temperament.length < 7) {
         setInput({
           ...input,
           temperament: [...input.temperament, e.target.value],
         });
       } else {
-        alert("Six temperaments max");
+        alert("7 temperaments max");
       }
     }
   }
@@ -94,6 +94,7 @@ export function DogCreate() {
   function handleSubmit(e) {
     e.preventDefault();
     dispatch(postDog(input));
+    alert("Success! Your dog was created");
     setInput({
       name: "",
       life_span: "",
@@ -104,6 +105,7 @@ export function DogCreate() {
       image: "",
       temperament: [],
     });
+
     history.push("/home");
   }
 
@@ -125,12 +127,11 @@ export function DogCreate() {
         <div className="rootform">
           <form className="form" onSubmit={(e) => handleSubmit(e)}>
             <h1 className="tittleform">Create your own breed of dog</h1>
-            {console.log(Object.values(errors))}
             <button
               className="btncreate"
               disabled={
-                input.temperament.length === 0 &&
-                Object.values(errors).every((x) => x !== null || x !== "")
+                input.temperament.length === 0 ||
+                Object.values(errors).length > 0
               }
               type="submit"
             >

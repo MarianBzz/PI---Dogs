@@ -28,8 +28,6 @@ export default function Home() {
   const indexOfFirstDog = indexOfLastDog - dogsPerPage;
   const currentDogs = allDogs.slice(indexOfFirstDog, indexOfLastDog);
 
-  console.log(allDogs);
-
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
   };

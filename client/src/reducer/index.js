@@ -32,6 +32,9 @@ export default function rootReducer(state = initialState, action) {
           ? state.allDogs.filter((e) => e.createInDb)
           : state.allDogs.filter((e) => !e.createInDb);
 
+      if (createdFilter.length === 0)
+        return alert("There aren't any dog created");
+
       return {
         ...state,
         dogs: action.payload === "all" ? state.allDogs : createdFilter,
