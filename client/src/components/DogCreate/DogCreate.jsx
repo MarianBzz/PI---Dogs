@@ -131,12 +131,17 @@ export function DogCreate() {
               className="btncreate"
               disabled={
                 input.temperament.length === 0 ||
-                Object.values(errors).length > 0
+                Object.values(errors).length > 0 ||
+                input.name === ""
               }
               type="submit"
+              value="crear"
             >
               Create
             </button>
+            {Object.values(errors).length > 0 && (
+              <p className="errorms">(All inputs must be completed)</p>
+            )}
             <div className="error">
               <div className="abc">
                 <input

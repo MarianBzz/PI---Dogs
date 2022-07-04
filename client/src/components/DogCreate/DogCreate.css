@@ -81,6 +81,9 @@
     margin-bottom: 12px;
     margin-top: 12px;
     width: 160px;
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    grid-gap: 15px;
 }
 
 .x{
@@ -145,4 +148,6 @@
       top: 0em;
     }
   }
+
+
   

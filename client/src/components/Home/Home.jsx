@@ -195,7 +195,7 @@ export default function Home() {
                     image={e.image}
                     temperament={
                       e.createInDb
-                        ? e.temperaments.map((t) => t.name + ", ")
+                        ? e.temperaments.map((t) => t.name).join(", ")
                         : e.temperament
                     }
                     minweight={e.minweight}
