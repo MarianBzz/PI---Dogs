@@ -52,7 +52,7 @@ export default function Card({
         </div>
       </div>
       <div className="temperament">{temperament}</div>
-      {console.log(temperament)}
+
       <div>
         <h5 className="weight">
           Weight: {minweight} - {maxweight} Kg

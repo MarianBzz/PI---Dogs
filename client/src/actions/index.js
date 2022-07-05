@@ -9,12 +9,21 @@ export const ORDER_BY_WEIGHT = "ORDER_BY_WEIGHT";
 export const GET_DOG_BREED = "GET_DOG_BREED";
 export const POST_DOG = "POST_DOG";
 export const GET_DETAIL = "GET_DETAIL";
-export const SET_CLEAR_DETAIL = " SET_CLEAR_DETAIL";
+export const SET_CLEAR_DETAIL = "SET_CLEAR_DETAIL";
 
 export function getDogs() {
   return async function (dispatch) {
-    let jsonDogs = await axios.get("http://localhost:3001/dogs");
-    return dispatch({ type: GET_DOGS, payload: jsonDogs.data });
+    return fetch("http://localhost:3001/dogs")
+      .then((res) => res.json())
+      .then((data) =>
+        dispatch({
+          type: GET_DOGS,
+          payload: data,
+        })
+      );
+
+    // let jsonDogs = await axios.get("http://localhost:3001/dogs");
+    // return dispatch({ type: GET_DOGS, payload: jsonDogs.data });
   };
 }
 

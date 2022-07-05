@@ -99,7 +99,7 @@ export default function Home() {
                 </div>
 
                 <div className="totalweight">
-                  <span className="titulos">Order by weight</span>
+                  <span className="titulos">Sort by weight</span>
                   <div className="filterweight">
                     <button
                       className="btnfilter"
@@ -125,7 +125,7 @@ export default function Home() {
                 </div>
 
                 <div className="totalorder">
-                  <span className="titulos"> Order by </span>
+                  <span className="titulos"> Sort by </span>
                   <div className="filterorder">
                     <button
                       className="btnfilter"
