@@ -13,17 +13,8 @@ export const SET_CLEAR_DETAIL = "SET_CLEAR_DETAIL";
 
 export function getDogs() {
   return async function (dispatch) {
-    return fetch("http://localhost:3001/dogs")
-      .then((res) => res.json())
-      .then((data) =>
-        dispatch({
-          type: GET_DOGS,
-          payload: data,
-        })
-      );
-
-    // let jsonDogs = await axios.get("http://localhost:3001/dogs");
-    // return dispatch({ type: GET_DOGS, payload: jsonDogs.data });
+    let jsonDogs = await axios.get("http://localhost:3001/dogs");
+    return dispatch({ type: GET_DOGS, payload: jsonDogs.data });
   };
 }
 

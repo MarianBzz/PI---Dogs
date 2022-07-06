@@ -12,36 +12,29 @@ function validate(input) {
     errors.name = "Name required";
   } else if (parseInt(input.name)) {
     errors.name = "Name is invalid, write a text";
-  }
-  if (!input.image) {
+  } else if (!input.image) {
     errors.image = "Image required";
-  }
-  if (!input.minweight) {
+  } else if (!input.minweight) {
     errors.minweight = "Minimum weight is required";
   } else if (Number(input.minweight) <= 0 || Number(input.minweight) >= 120) {
     errors.minweight = "Write a number beetwen 0 - 120";
-  }
-  if (!input.maxweight) {
+  } else if (!input.maxweight) {
     errors.maxweight = "Maximum weight is required";
   } else if (Number(input.maxweight) <= 0 || Number(input.maxweight) >= 120) {
     errors.maxweight = "Write a number beetwen 0 - 120";
-  }
-  if (!input.minheight) {
+  } else if (!input.minheight) {
     errors.minheight = "Minimum height is required";
   } else if (Number(input.minheight) <= 0 || Number(input.minheight) >= 100) {
     errors.minheight = "Write a number beetwen 0 - 100";
-  }
-  if (!input.maxheight) {
+  } else if (!input.maxheight) {
     errors.maxheight = "Maximum height is required";
   } else if (Number(input.maxheight) <= 0 || Number(input.maxheight) >= 100) {
     errors.maxheight = "Write a number beetwen 0 - 100";
-  }
-  if (!input.life_span) {
+  } else if (!input.life_span) {
     errors.life_span = "Life span is required";
   } else if (input.life_span < 1 || input.life_span > 20) {
     errors.life_span = "Write a number beetwen 1 - 20";
-  }
-  if (!input.temperament) {
+  } else if (!input.temperament) {
     errors.temperament = "At least one temperament is required";
   }
   return errors;

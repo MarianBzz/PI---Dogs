@@ -70,10 +70,10 @@ export default function rootReducer(state = initialState, action) {
       let sortedArrWeight =
         action.payload === "desc"
           ? state.dogs.sort((a, b) => {
-              return b.maxweight - a.maxweight;
+              return b.minweight - a.minweight;
             })
           : state.dogs.sort((a, b) => {
-              return a.maxweight - b.maxweight;
+              return a.minweight - b.minweight;
             });
       return {
         ...state,

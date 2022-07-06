@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
       );
       dogName.length
         ? res.status(200).send(dogName)
-        : res.status(404).send("No se ha encontrado la raza");
+        : res.status(404).send("Breed not found");
     } else {
       res.status(200).send(allDogs);
     }
@@ -31,11 +31,11 @@ router.get("/:id", async (req, res) => {
   if (dog) {
     res.json(dog);
   } else {
-    res.status(404).send("No se encontro el id");
+    res.status(404).send("Id not found");
   }
 });
 
-router.post("/", async (req, res, next) => {
+router.post("/", async (req, res) => {
   try {
     const {
       name,
