@@ -124,8 +124,7 @@ export function DogCreate() {
               className="btncreate"
               disabled={
                 input.temperament.length === 0 ||
-                Object.values(errors).length > 0 ||
-                input.name === ""
+                Object.values(errors).length > 0
               }
               type="submit"
               value="crear"
