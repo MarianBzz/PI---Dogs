@@ -33,10 +33,6 @@ export default function rootReducer(state = initialState, action) {
           ? state.allDogs.filter((e) => e.createInDb)
           : state.allDogs.filter((e) => !e.createInDb);
 
-      if (createdFilter.length === 0) {
-        return alert("There aren't any dog created");
-      }
-
       return {
         ...state,
         dogs: action.payload === "all" ? state.allDogs : createdFilter,
@@ -70,10 +66,16 @@ export default function rootReducer(state = initialState, action) {
       let sortedArrWeight =
         action.payload === "desc"
           ? state.dogs.sort((a, b) => {
-              return b.minweight - a.minweight;
+              return (
+                (b.minweight + b.maxweight) / 2 -
+                (a.minweight + a.maxweight) / 2
+              );
             })
           : state.dogs.sort((a, b) => {
-              return a.minweight - b.minweight;
+              return (
+                (a.minweight + a.maxweight) / 2 -
+                (b.minweight + b.maxweight) / 2
+              );
             });
       return {
         ...state,

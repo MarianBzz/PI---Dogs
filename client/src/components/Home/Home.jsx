@@ -26,6 +26,7 @@ export default function Home() {
   const [weight, setWeight] = useState(1);
   const indexOfLastDog = currentPage * dogsPerPage;
   const indexOfFirstDog = indexOfLastDog - dogsPerPage;
+  console.log(indexOfFirstDog);
   const currentDogs = allDogs.slice(indexOfFirstDog, indexOfLastDog);
 
   const paginado = (pageNumber) => {
