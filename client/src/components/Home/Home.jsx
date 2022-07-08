@@ -14,6 +14,7 @@ import {
 } from "../../actions";
 import Nav from "../Nav/Nav";
 import "./Home.css";
+import Footer from "../Footer/Footer";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -215,6 +216,7 @@ export default function Home() {
               />
             </div>
           </div>
+          <Footer />
         </div>
       ) : (
         <div className="gifload">
