@@ -18,6 +18,7 @@ export default function SearchBar() {
     e.preventDefault();
     if (name !== "") dispatch(getDogBreed(name));
     setName(" ");
+    if (name === "") return alert("write a dogbreed name");
   }
 
   return (

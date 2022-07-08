@@ -13,7 +13,7 @@ export const SET_CLEAR_DETAIL = "SET_CLEAR_DETAIL";
 
 export function getDogs() {
   return async function (dispatch) {
-    let jsonDogs = await axios.get("http://localhost:3001/dogs");
+    let jsonDogs = await axios.get("/dogs");
     return dispatch({ type: GET_DOGS, payload: jsonDogs.data });
   };
 }
@@ -34,7 +34,7 @@ export function filterCrated(payload) {
 
 export function getTemperamentList() {
   return async function (dispatch) {
-    var jsonTemp = await axios.get("http://localhost:3001/temperaments");
+    var jsonTemp = await axios.get("/temperaments");
     return dispatch({
       type: GET_TEMPERAMENT_LIST,
       payload: jsonTemp.data,
@@ -45,13 +45,14 @@ export function getTemperamentList() {
 export function getDogBreed(name) {
   return async function (dispatch) {
     try {
-      let json = await axios.get("http://localhost:3001/dogs?name=" + name);
+      let json = await axios.get("/dogs?name=" + name);
       return dispatch({
         type: GET_DOG_BREED,
         payload: json.data,
       });
     } catch (error) {
       console.log(error);
+      alert("Breed not found");
     }
   };
 }
@@ -59,7 +60,7 @@ export function getDogBreed(name) {
 export function postDog(payload) {
   return async function (dispatch) {
     try {
-      const response = await axios.post("http://localhost:3001/dogs", payload);
+      const response = await axios.post("/dogs", payload);
       return response;
     } catch (error) {
       console.log(error);
@@ -91,7 +92,7 @@ export function setCleartDetail() {
 export function getDetail(id) {
   return async function (dispatch) {
     try {
-      const jsonDetail = await axios.get("http://localhost:3001/dogs/" + id);
+      const jsonDetail = await axios.get("/dogs/" + id);
       console.log(jsonDetail.data);
       return dispatch({
         type: GET_DETAIL,
