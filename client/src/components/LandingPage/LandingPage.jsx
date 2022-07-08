@@ -9,6 +9,9 @@ export default function LandingPage() {
     <div className="full">
       <div className="full-inner">
         <div className="content">
+          <Link to="/home" style={{ textDecoration: "none" }}>
+            <button className="home">Home</button>
+          </Link>
           <img className="logo" src={img} width="150" height="150" alt="logo" />
           <h1 className="title">
             DOGGYDOG'S <br /> APP
@@ -21,9 +24,6 @@ export default function LandingPage() {
             height="275"
             alt="patas"
           />
-          <Link to="/home" style={{ textDecoration: "none" }}>
-            <button className="home">Home</button>
-          </Link>
         </div>
       </div>
     </div>
