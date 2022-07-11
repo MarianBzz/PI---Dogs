@@ -37,7 +37,12 @@ export default function Detail(props) {
             <p className="md">
               <strong>Temperament</strong>
               <br />
-              {detailDog.temperaments.map((e) => e.name).join(", ")}
+              {detailDog.createInDb
+                ? detailDog.temperaments.map((e) => e.name).join(", ")
+                : detailDog.temperament
+                    .split(", ")
+                    .map((e) => e)
+                    .join(", ")}
             </p>
             <div className="weightdet">
               <p>
