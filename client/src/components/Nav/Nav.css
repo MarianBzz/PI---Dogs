@@ -31,6 +31,15 @@ font-size: 26px;
 color: #8c481e;
 }
 
+.icontittlee{
+   display: flex;
+float: left;
+align-items: center;
+font-family: "GoodDog Plain";
+font-size: 32px;
+color: #8c481e;
+}
+
 .btn2{
     --button_radius: 0.75em;
    --button_color: #e8e8e8;

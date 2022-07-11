@@ -9,7 +9,7 @@ export default function Nav({ handleClick, allDogs }) {
       <Link to="/home" style={{ textDecoration: "none" }}>
         <div className="icontittle">
           <img src={icon} alt="Icon Doggy" width="75" height="75" />
-          <h3>DoggyDog's App</h3>
+          <h3 className="icontittlee">DoggyDog's App</h3>
         </div>
       </Link>
       {allDogs ? (
