@@ -6,7 +6,6 @@ import { useParams } from "react-router";
 import imgload from "../../images/loadindog.gif";
 import "./Detail.css";
 import Nav from "../Nav/Nav";
-import Footer from "../Footer/Footer";
 
 export default function Detail(props) {
   const dispatch = useDispatch();
@@ -70,7 +69,6 @@ export default function Detail(props) {
           </div>
         </div>
       )}
-      <Footer />
     </div>
   );
 }
