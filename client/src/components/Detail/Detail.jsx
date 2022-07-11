@@ -37,7 +37,7 @@ export default function Detail(props) {
             <p className="md">
               <strong>Temperament</strong>
               <br />
-              {detailDog.temperament}
+              {detailDog.temperaments.map((e) => e.name).join(", ")}
             </p>
             <div className="weightdet">
               <p>
@@ -60,7 +60,7 @@ export default function Detail(props) {
               </p>
             </div>
             <p>
-              <strong>Life Span</strong> <br /> {detailDog.life_span}
+              <strong>Life Span</strong> <br /> {detailDog.life_span} years
             </p>
           </div>
         </div>
